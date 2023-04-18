@@ -6,6 +6,8 @@ namespace ConsoleApp12
 {
     internal class Program
     {
+        
+
         static void Main(string[] args)
         {
             Console.WriteLine("MENU");
@@ -13,6 +15,7 @@ namespace ConsoleApp12
             Console.WriteLine("2.Medicine menu");
             Console.WriteLine("0.Exit");
             Console.WriteLine("Secim edin:");
+            //CATEGORY
             int menu=int.Parse(Console.ReadLine());
             switch (menu)
             {
@@ -24,6 +27,7 @@ namespace ConsoleApp12
                     Console.WriteLine("3.Update category");
                     Console.WriteLine("0.Exit");
                     Console.WriteLine("Secim edin:");
+                    //CREATE,DELETE,UPDATE
                     int menu2 = int.Parse(Console.ReadLine());
                     switch (menu2)
                     {
@@ -35,14 +39,23 @@ namespace ConsoleApp12
                             Category category= new Category(categoryname);
                             Context.Categories.Add(category);
                             break;
+                         case 2:
+                            Console.WriteLine("Silmek istediyiniz categorynin ID'sini daxil edin");
+                            int deleteId=int.Parse(Console.ReadLine());
+                            Category.Delete(deleteId);
+                            break;
                     }
                     break;
+
+                    //MEDICINE
+
                 case 2:
                     Console.WriteLine("1.Create category");
                     Console.WriteLine("2.Delete category");
                     Console.WriteLine("3.Update category");
                     Console.WriteLine("0.Exit");
                     Console.WriteLine("Secim edin:");
+                    //CREATE,DELETE,UPDATE
                     int menu3 = int.Parse(Console.ReadLine());
                     switch (menu3)
                     {
@@ -58,14 +71,20 @@ namespace ConsoleApp12
                             Medicine medicine = new Medicine(medicinename,price,count);
                             Context.Medicines.Add(medicine);
                             break;
+                        case 2:
+                            Console.WriteLine("Silmek istediyiniz medicinenin ID'sini daxil edin");
+                            int deleteId = int.Parse(Console.ReadLine());
+                            Medicine.Delete(deleteId);
+                            break;
                     }
                     break;
 
                     default:
                     Console.WriteLine("Duzgun daxil edin");
                     break;
-
             }
+           
         }
-    }
+         
+}
 }
